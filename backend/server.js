@@ -19,3 +19,7 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+app.use((err, req, res, next) => {
+  res.status(400).json({ message: err.message });
+});
