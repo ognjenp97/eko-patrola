@@ -16,6 +16,16 @@ const reportSchema = new mongoose.Schema({
         message: 'Potrebna je bar jedna, a najvise 8 slika',
       },
     },
+    afterImages: {
+      type: [String],
+      default: [],
+      validate: {
+        validator: function (arr) {
+          return arr.length <= 8;
+        },
+        message: 'Najviše 8 slika poslije čišćenja.',
+      },
+    },
     location: {
       lat: { type: Number, required: true },
       lng: { type: Number, required: true },
