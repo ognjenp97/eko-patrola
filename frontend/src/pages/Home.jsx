@@ -45,28 +45,25 @@ function Home() {
       {/* Hero */}
       <section className="bg-emerald-950 text-white px-4 py-16">
         <div className="max-w-5xl mx-auto grid md:grid-cols-[1.4fr_1fr] gap-10 items-center">
-          <div>
-            <span className="inline-block bg-white/10 text-emerald-200 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-              EKO PATROLA
-            </span>
+          <div className="max-w-md mx-auto md:mx-0 text-center">
             <h1 className="text-4xl font-bold mb-4 leading-tight">
               Za čistiju zajednicu
             </h1>
-            <p className="text-emerald-100 mb-6 max-w-md">
+            <p className="text-emerald-100 mb-6">
               Fotografišite nelegalnu deponiju, označite lokaciju i pošaljite prijavu
               službama koje mogu reagovati. Ako ste deponiju već očistili, podijelite i
               akciju čišćenja da bude vidljiva svima.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap justify-center gap-5">
               <Link
                 to="/prijava"
-                className="bg-white text-emerald-900 font-semibold px-5 py-3 rounded-xl hover:bg-emerald-50 transition-colors"
+                className="bg-white text-emerald-900 font-semibold px-6 py-3 rounded-xl hover:bg-emerald-50 transition-colors"
               >
                 Prijavi deponiju
               </Link>
               <a
                 href="#mapa"
-                className="bg-emerald-800 text-white font-semibold px-5 py-3 rounded-xl hover:bg-emerald-700 transition-colors"
+                className="bg-emerald-800 text-white font-semibold px-6 py-3 rounded-xl hover:bg-emerald-700 transition-colors"
               >
                 Pogledaj prijave
               </a>
