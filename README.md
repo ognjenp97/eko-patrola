@@ -27,29 +27,34 @@ eko-patrola/
 
 ## Getting Started
 
-### Backend
+1. Set up environment files:
 
-```bash
-cd backend
-npm install
-cp .env.example .env   # fill in your own MongoDB/Supabase/admin values
-npm run dev
-```
+   ```bash
+   cp backend/.env.example backend/.env    # fill in your own MongoDB/Supabase/admin values
+   cp frontend/.env.example frontend/.env
+   ```
 
-To generate `ADMIN_PASSWORD_HASH`, run once:
+   To generate `ADMIN_PASSWORD_HASH`, run once:
 
-```bash
-node -e "console.log(require('bcryptjs').hashSync('your-password', 10))"
-```
+   ```bash
+   node -e "console.log(require('bcryptjs').hashSync('your-password', 10))"
+   ```
 
-### Frontend
+2. Install dependencies for the root, backend, and frontend in one go:
 
-```bash
-cd frontend
-npm install
-cp .env.example .env
-npm run dev
-```
+   ```bash
+   npm run install:all
+   ```
+
+3. Start both servers at once (backend on :3000, frontend on :5173):
+
+   ```bash
+   npm run dev
+   ```
+
+   This runs `backend` and `frontend` concurrently, each logging with its own prefix.
+
+   To run them separately instead, `cd backend` or `cd frontend` and use `npm run dev` as before.
 
 ## Status
 
