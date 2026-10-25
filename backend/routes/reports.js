@@ -58,6 +58,23 @@ router.get('/admin', requireAdmin, async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const report = await Report.findOne({
+      _id: req.params.id,
+      status: { $in: ['active', 'cleaned'] },
+    });
+
+    if (!report) {
+      return res.status(404).json({ message: 'Prijava nije pronađena.' });
+    }
+
+    res.status(200).json(report);
+  } catch (error) {
+    res.status(404).json({ message: 'Prijava nije pronađena.' });
+  }
+});
+
 router.patch('/:id', requireAdmin, async (req, res) => {
   try {
     const allowedStatuses = ['pending', 'active', 'cleaned'];

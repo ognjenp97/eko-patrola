@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import Home from './pages/Home';
 import NovaPrijava from './pages/NovaPrijava';
+import ReportDetail from './pages/ReportDetail';
 import Login from './pages/Login';
 import Admin from './pages/Admin';
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/prijava" element={<NovaPrijava />} />
+        <Route path="/prijave/:id" element={<ReportDetail />} />
         <Route path="/login" element={<Login />} />
         <Route
           path="/admin"
