@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom';
+
 function ReportCard({ report }) {
   const date = new Date(report.createdAt).toLocaleDateString('sr-Latn-BA');
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+    <Link
+      to={`/prijave/${report._id}`}
+      className="block bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+    >
       <div className="relative h-40 bg-gray-100">
         {report.images?.[0] && (
           <img
@@ -30,7 +35,7 @@ function ReportCard({ report }) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

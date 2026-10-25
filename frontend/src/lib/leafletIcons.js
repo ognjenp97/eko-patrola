@@ -14,4 +14,9 @@ export const SATELLITE_TILE_URL =
   'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
 export const SATELLITE_ATTRIBUTION = 'Tiles &copy; Esri';
 
-export const DEFAULT_CENTER = [43.9159, 18.7169];
+export const STANDARD_TILE_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+export const STANDARD_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+// Sarajevo
+export const DEFAULT_CENTER = [43.8563, 18.4131];

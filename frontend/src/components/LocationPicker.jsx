@@ -1,6 +1,14 @@
+import { useState } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import { SATELLITE_TILE_URL, SATELLITE_ATTRIBUTION, DEFAULT_CENTER } from '../lib/leafletIcons';
+import {
+  SATELLITE_TILE_URL,
+  SATELLITE_ATTRIBUTION,
+  STANDARD_TILE_URL,
+  STANDARD_ATTRIBUTION,
+  DEFAULT_CENTER,
+} from '../lib/leafletIcons';
+import MapTypeToggle from './MapTypeToggle';
 
 function ClickHandler({ onSelect }) {
   useMapEvents({
@@ -12,18 +20,25 @@ function ClickHandler({ onSelect }) {
 }
 
 function LocationPicker({ lat, lng, onSelect }) {
+  const [mapType, setMapType] = useState('satellite');
   const position = lat && lng ? [lat, lng] : null;
 
   return (
-    <MapContainer
-      center={position || DEFAULT_CENTER}
-      zoom={position ? 15 : 8}
-      className="h-64 w-full rounded-xl z-0"
-    >
-      <TileLayer url={SATELLITE_TILE_URL} attribution={SATELLITE_ATTRIBUTION} />
-      <ClickHandler onSelect={onSelect} />
-      {position && <Marker position={position} />}
-    </MapContainer>
+    <div className="relative">
+      <MapContainer
+        center={position || DEFAULT_CENTER}
+        zoom={position ? 15 : 12}
+        className="h-64 w-full rounded-xl z-0"
+      >
+        <TileLayer
+          url={mapType === 'satellite' ? SATELLITE_TILE_URL : STANDARD_TILE_URL}
+          attribution={mapType === 'satellite' ? SATELLITE_ATTRIBUTION : STANDARD_ATTRIBUTION}
+        />
+        <ClickHandler onSelect={onSelect} />
+        {position && <Marker position={position} />}
+      </MapContainer>
+      <MapTypeToggle mapType={mapType} onChange={setMapType} />
+    </div>
   );
 }
 
